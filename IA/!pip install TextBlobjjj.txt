@@ -1,0 +1,30 @@
+!pip install TextBlob
+from textblob import TextBlob
+import re
+
+import nltk
+nltk.download('punkt_tab')  # Necesario la primera vez
+
+from nltk.tokenize import word_tokenize
+
+
+
+texto="me encanta la Inteligencia Artificial, es Increible."
+analisis=TextBlob(texto)
+
+
+print("Sentimiento:",analisis.sentiment.polarity)
+
+
+texto_sin_puntuacion = re.sub(r'[^\w\s]', '', texto)  # Conserva letras y espacios
+print(texto_sin_puntuacion)  # Hola mundo Como estas
+
+
+
+texto_min = texto_sin_puntuacion.lower()
+print(texto_min)  # hola mundo como estas
+
+
+
+tokens=word_tokenize(texto_min)
+print(tokens)  # ['hola', 'mundo', 'como', 'estas']

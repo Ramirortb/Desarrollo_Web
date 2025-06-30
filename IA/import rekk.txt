@@ -1,0 +1,52 @@
+import re
+
+texto = "¡Hola, mundo! ¿Cómo estás?"
+texto_sin_puntuacion = re.sub(r'[^\w\s]', '', texto)  # Conserva letras y espacios
+print(texto_sin_puntuacion)  # Hola mundo Como estas
+
+
+
+texto_min = texto_sin_puntuacion.lower()
+print(texto_min)  # hola mundo como estas
+
+
+
+
+import nltk
+nltk.download('punkt')  # Necesario la primera vez
+
+from nltk.tokenize import word_tokenize
+
+tokens = word_tokenize(texto_min)
+print(tokens)  # ['hola', 'mundo', 'como', 'estas']
+
+
+
+import re
+
+# Leer archivo y limpiar el texto
+with open("archivo.txt", "r", encoding="utf-8") as archivo:
+    texto = archivo.read().lower()  # Convertir a minúsculas
+
+# Eliminar puntuación
+texto_sin_puntuacion = re.sub(r'[^\w\s]', '', texto)
+
+# Tokenizar palabras
+tokens = texto_sin_puntuacion.split()
+
+print(tokens)  # Lista de palabras procesadas
+
+
+
+
+
+
+# Abrir el archivo en modo lectura
+with open("archivo.txt", "r", encoding="utf-8") as archivo:
+    texto = archivo.read()  # Leer todo el contenido
+print(texto)  # Muestra el contenido del archivo
+
+
+
+
+
